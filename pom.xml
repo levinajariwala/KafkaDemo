@@ -113,7 +113,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>Scala.userKafkaConsumer</mainClass>
+              <mainClass>userKafkaConsumer</mainClass>
             </manifest>
           </archive>
         </configuration>

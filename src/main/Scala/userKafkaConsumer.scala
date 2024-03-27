@@ -50,5 +50,6 @@ object  userKafkaConsumer{
       .selectExpr("data.*")
 
     df.show()
+
   }
 }

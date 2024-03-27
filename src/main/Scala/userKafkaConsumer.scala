@@ -16,6 +16,10 @@
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types.{StringType, StructField, StructType}
+
+class userKafkaConsumer{
+
+}
 object  userKafkaConsumer{
   def main(args:Array[String]): Unit = {
     val spark = SparkSession.builder()

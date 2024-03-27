@@ -15,6 +15,7 @@
 //  Demonstrate your understanding of processing time vs. event time.
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.functions._
+import org.apache.spark.sql.streaming.Trigger
 import org.apache.spark.sql.types.{StringType, StructField, StructType}
 
 class userKafkaConsumer{
@@ -53,7 +54,14 @@ object  userKafkaConsumer{
       .select(from_json(col("value"), schema).as("data"))
       .selectExpr("data.*")
 
-    df.show()
+    val query = df.writeStream
+      .outputMode("append")
+      .format("console")
+      .trigger(Trigger.ProcessingTime("5 seconds"))
+      .start()
+
+    query.awaitTermination()
+//    df.show()
 
   }
 }
